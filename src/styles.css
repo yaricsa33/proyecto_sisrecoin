@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* Agregar fuente a la letra */
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/fonts/Roboto-Light.ttf') format('truetype');
+  font-weight: bold;
+}
+
+body {
+  font-family: 'roboto', sans-serif !important;
+  overflow-x: hidden !important;
+}
+
+/* Margenes pagina */
+.page-widht {
+  width: 100%;
+}
+
+/* tamaños pagina */
+.full-height {
+  min-height: 100vh;
+}
+
+.height-medium {
+  min-height: 50vh;
+}
+
+.height-low {
+  min-height: 30vh;
+}
+
+.height-content-form {
+  overflow: auto;
+  height: 70vh;
+}
+
+/* color titulos */
+h1 {
+  color: #409BEB;
+}
+
+/* centrar elementos */
+.center-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-center {
+  display: flex;
+  justify-content: center;
+}
+
+.centrar-tablas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* placeholder input date */
+
+input[type="date"]:before {
+  color: lightgrey;
+  content: attr(placeholder) !important;
+  margin-right: 0.5em;
+}
+
+input[type="date"]:focus:before {
+  content: '' !important;
+}
+
+/* iconos */
+
+.icon-delete {
+  font-size: 20px;
+  color: #F2271D;
+  cursor: pointer;
+}
+
+.icon-editar {
+  font-size: 20px;
+  color: #409BEB;
+  cursor: pointer;
+}
+
+.div-icon-agregar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon-agregar {
+  font-size: 35px;
+  color: #344A5C;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}

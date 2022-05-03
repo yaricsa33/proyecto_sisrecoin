@@ -1,0 +1,19 @@
+.cambiar-contrasena-titulo {
+  background-color: #409BEB;
+  height: 18vh;
+  border-bottom: 2px solid #FFFFFF;
+}
+
+h1 {
+  color: #FFFFFF;
+}
+
+.cambiar-contrasena-letter-spacing {
+  letter-spacing: 6px;
+}
+
+.cambiar-contrasena-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

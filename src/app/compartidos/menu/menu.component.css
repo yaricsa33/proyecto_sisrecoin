@@ -1,0 +1,16 @@
+.logo {
+  background: #409BEB;
+  width: 100%;
+  height: 15vh;
+  border-right: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-accordion {
+  border-right: 2px solid #409BEB;
+  height: 85vh;
+  cursor: pointer;
+}

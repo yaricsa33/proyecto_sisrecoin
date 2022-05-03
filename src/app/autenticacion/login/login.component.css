@@ -1,0 +1,21 @@
+.login-imagen{
+  min-height: 400px;
+  background-image: url('https://media.admagazine.com/photos/618a6247e702c61c265bbba8/master/w_1600%2Cc_limit/80886.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-form-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-titulo-iniciar-sesion{
+  font-size: 50px;
+}
+
+.login-titulo-app{
+  font-size: 70px;
+  letter-spacing: 10px;
+}

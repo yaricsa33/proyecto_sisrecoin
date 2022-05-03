@@ -1,0 +1,52 @@
+<app-titulo [titulo]="nombre"></app-titulo>
+<div class="row mt-5 centrar-tablas">
+  <div class="col-md-7">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-search  "></i></span>
+          <input type="text" class="form-control" placeholder="Buscar..." aria-label="Username"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
+      <div class="col-md-7 div-icon-agregar">
+        <a [routerLink]="'../crear'"><i class="bi bi-plus-circle icon-agregar"></i></a>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Rol</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-md-2">Administrador</td>
+          <td class="col-md-2">
+            <div class="row ">
+              <i class="bi bi-pencil col-md-2 icon-editar"></i>
+              <i class="bi bi-trash col-md-2 icon-delete"></i>
+            </div>
+        </tr>
+        <tr>
+          <td class="col-md-2">Costurera</td>
+          <td class="col-md-2">
+            <div class="row ">
+              <i class="bi bi-pencil col-md-2 icon-editar"></i>
+              <i class="bi bi-trash col-md-2 icon-delete"></i>
+            </div>
+        </tr>
+        <tr>
+          <td class="col-md-2">Tapicero</td>
+          <td class="col-md-2">
+            <div class="row ">
+              <i class="bi bi-pencil col-md-2 icon-editar"></i>
+              <i class="bi bi-trash col-md-2 icon-delete"></i>
+            </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

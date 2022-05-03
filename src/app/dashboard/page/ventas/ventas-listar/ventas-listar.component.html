@@ -1,0 +1,64 @@
+<app-titulo [titulo]="nombre"></app-titulo>
+<div class="row mt-5 centrar-tablas">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-search  "></i></span>
+          <input type="text" class="form-control" placeholder="Buscar..." aria-label="Username"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
+      <div class="col-md-7 div-icon-agregar">
+        <a [routerLink]="'../crear'"><i class="bi bi-plus-circle icon-agregar"></i></a>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Nombre cliente</th>
+          <th>Fecha de entrega</th>
+          <th>Valor final</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-md-2">1</td>
+          <td class="col-md-2">carlos Gomez</td>
+          <td class="col-md-2">12-05-2021</td>
+          <td class="col-md-2">11.000</td>
+          <td class="col-md-2">
+            <div class="row ">
+              <i class="bi bi-pencil col-md-3 icon-editar"></i>
+              <i class="bi bi-trash col-md-3 icon-delete"></i>
+            </div>
+        </tr>
+        <tr>
+          <td class="col-md-2">2</td>
+          <td class="col-md-2">mateo castro</td>
+          <td class="col-md-2">10-02-2022</td>
+          <td class="col-md-2">20.000</td>
+          <td class="col-md-2">
+            <div class="row ">
+              <i class="bi bi-pencil col-md-3 icon-editar"></i>
+              <i class="bi bi-trash col-md-3 icon-delete"></i>
+            </div>
+        </tr>
+        <tr>
+          <td class="col-md-2">3</td>
+          <td class="col-md-2">Patricia Lemus</td>
+          <td class="col-md-2">20-05-2021</td>
+          <td class="col-md-2">30.000</td>
+          <td class="col-md-2">
+            <div class="row ">
+              <i class="bi bi-pencil col-md-3 icon-editar"></i>
+              <i class="bi bi-trash col-md-3 icon-delete"></i>
+            </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+.menu-principal {
+  height: 100vh;
+  padding-right: 0px !important;
+}
+
+.user-div {
+  height: 15vh;
+  background: #409BEB;
+  border-bottom: 2px solid #FFFFFF;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nombre-menu {
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.icono-user-menu {
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+
+.icono-logout-menu {
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+
+.user-nombre {
+  font-size: 20px;
+}
+
+.icon-user {
+  font-size: 50px;
+}
+
+.icon-salir {
+  font-size: 30px;
+  cursor: pointer;
+}

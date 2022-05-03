@@ -1,0 +1,10 @@
+.titulo {
+  height: 15vh;
+  background: #409BEB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: bold;
+}

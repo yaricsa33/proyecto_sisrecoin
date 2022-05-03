@@ -1,0 +1,273 @@
+<app-titulo [titulo]="nombre"></app-titulo>
+<div class="row form-center height-content-form">
+  <form class="col-md-8">
+    <div class="form-group row mt-4 ">
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Nombre">
+      </div>
+      <div class="col-md-6">
+        <select class="custom-select form-control">
+          <option selected>Seleccione de mueble</option>
+          <option value="1">Sala</option>
+          <option value="2">Comedor</option>
+          <option value="3">Basecama</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row mt-4">
+      <div class=" col-md-12">
+        <textarea class="form-control" placeholder="Descripcion " rows="2"></textarea>
+      </div>
+    </div>
+    <div class="row mt-5 centrar-tablas">
+      <div class="row">
+        <div class="col-md-5 asignar-personal-titulo">
+          <h5>Asignar personal</h5>
+        </div>
+        <div class="col-md-7 div-icon-agregar">
+          <i class="bi bi-plus-circle icon-agregar" data-bs-toggle="modal" data-bs-target="#asignarpersonalModal"></i>
+        </div>
+      </div>
+      <div class="row form-center">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Rol</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-md-2">1</td>
+              <td class="col-md-2">Edwin</td>
+              <td class="col-md-2">Camacho</td>
+              <td class="col-md-2">Tapicero</td>
+              <td class="col-md-2"><input type="text">
+            </tr>
+            <tr>
+              <td class="col-md-2">2</td>
+              <td class="col-md-2">Nicolas</td>
+              <td class="col-md-2">Rubiano</td>
+              <td class="col-md-2">Trabajador</td>
+              <td class="col-md-2"><input type="text">
+            </tr>
+            <tr>
+              <td class="col-md-2">3</td>
+              <td class="col-md-2">Jesica</td>
+              <td class="col-md-2">Camacho</td>
+              <td class="col-md-2">Costurera</td>
+              <td class="col-md-2"><input type="text">
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row mt-5 centrar-tablas">
+      <div class="row">
+        <div class="col-md-6 asignar-personal-titulo">
+          <h5>Asignar materia prima</h5>
+        </div>
+        <div class="col-md-6 div-icon-agregar">
+          <i class="bi bi-plus-circle icon-agregar" data-bs-toggle="modal"
+            data-bs-target="#asignarMateriaPrimaModal"></i>
+        </div>
+      </div>
+      <div class="row form-center">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Nombre</th>
+              <th>Valor</th>
+              <th>unidades totales</th>
+              <th>Unidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-md-2">1</td>
+              <td class="col-md-2">Tela</td>
+              <td class="col-md-2">90.000</td>
+              <td class="col-md-2">11</td>
+              <td class="col-md-2"><input type="text">
+            </tr>
+            <tr>
+              <td class="col-md-2">2</td>
+              <td class="col-md-2">Madera</td>
+              <td class="col-md-2">10.000</td>
+              <td class="col-md-2">20</td>
+              <td class="col-md-2"><input type="text">
+            </tr>
+            <tr>
+              <td class="col-md-2">3</td>
+              <td class="col-md-2">Tornillos</td>
+              <td class="col-md-2">20.000</td>
+              <td class="col-md-2">30</td>
+              <td class="col-md-2"><input type="text">
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="form-group row mt-4">
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Costo materia prima">
+      </div>
+      <div class="col-md-6">
+        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Fecha estimada de entrega">
+      </div>
+    </div>
+    <div class=" text-center mb-4 mt-4">
+      <button type="button" class="btn btn-secondary btn-lg mt-4">Crear mueble</button>
+    </div>
+  </form>
+</div>
+
+<!-- Modal asignar personal -->
+
+<div class="modal fade" id="asignarpersonalModal" tabindex="-1" aria-labelledby="asignarpersonalModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h5 class="modal-title" id="asignarpersonalModalLabel">Seleccionar personal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"> <i class="bi bi-search"></i></span>
+              <input type="text" class="form-control" placeholder="Buscar..." aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+          </div>
+          <table class="table ">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Rol</th>
+                <th>Seleccionar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-3"> Carlos</td>
+                <td class="col-md-3">Ramos</td>
+                <td class="col-md-3">Tapicero</td>
+                <td class="col-md-3">
+                  <div class="form-check modal-checkbox">
+                    <input type="checkbox" class="form-check-input">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-md-3">Sandra</td>
+                <td class="col-md-3">Rojas</td>
+                <td class="col-md-3">Costurera</td>
+                <td class="col-md-3">
+                  <div class="form-check modal-checkbox">
+                    <input type="checkbox" class="form-check-input">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-md-3">Vanesa</td>
+                <td class="col-md-3">lopez</td>
+                <td class="col-md-3">Costurera</td>
+                <td class="col-md-3">
+                  <div class="form-check modal-checkbox">
+                    <input type="checkbox" class="form-check-input">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Seleccionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal asignar mayeria prima -->
+
+<div class="modal fade" id="asignarMateriaPrimaModal" tabindex="-1" aria-labelledby="asignarMateriaPrimaModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h5 class="modal-title" id="asignarMateriaPrimaModalLabel">Seleccionar materia prima</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"> <i class="bi bi-search"></i></span>
+              <input type="text" class="form-control" placeholder="Buscar..." aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+          </div>
+          <table class="table ">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Valor</th>
+                <th>Unidades totales</th>
+                <th>Seleccionar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-3"> Tela</td>
+                <td class="col-md-3">10.000</td>
+                <td class="col-md-3">1</td>
+                <td class="col-md-3">
+                  <div class="form-check modal-checkbox">
+                    <input type="checkbox" class="form-check-input">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-md-3">Madera</td>
+                <td class="col-md-3">20.000</td>
+                <td class="col-md-3">2</td>
+                <td class="col-md-3">
+                  <div class="form-check modal-checkbox">
+                    <input type="checkbox" class="form-check-input">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-md-3">Espuma</td>
+                <td class="col-md-3">30.000</td>
+                <td class="col-md-3">3</td>
+                <td class="col-md-3">
+                  <div class="form-check modal-checkbox">
+                    <input type="checkbox" class="form-check-input">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Seleccionar</button>
+      </div>
+    </div>
+  </div>
+</div>
