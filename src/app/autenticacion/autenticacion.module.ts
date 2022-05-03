@@ -5,6 +5,7 @@ import { AutenticacionRoutingModule } from './autenticacion-routing.module';
 import { CambiarContrasenaComponent } from './cambiar-contrasena/cambiar-contrasena.component';
 import { LoginComponent } from './login/login.component';
 import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-c
   ],
   imports: [
     CommonModule,
-    AutenticacionRoutingModule
+    AutenticacionRoutingModule,
+    RouterModule
   ]
 })
 export class AutenticacionModule { }

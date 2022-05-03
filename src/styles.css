@@ -97,5 +97,6 @@ input[type="date"]:focus:before {
 }
 
 a {
-  text-decoration: none;
+  color: #000000 !important;
+  text-decoration: none !important;
 }
