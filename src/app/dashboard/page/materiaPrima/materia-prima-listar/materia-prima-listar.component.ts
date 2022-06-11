@@ -5,7 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './materia-prima-listar.component.html',
   styleUrls: ['./materia-prima-listar.component.css']
 })
-export class MateriaPrimaListarComponent {
+export class MateriaPrimaListarComponent implements OnInit {
 
   nombre: string = "Listar materia prima";
+
+  ngOnInit(): void {
+
+  }
 }

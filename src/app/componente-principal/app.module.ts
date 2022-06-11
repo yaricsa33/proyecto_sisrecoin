@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompartidosModule } from '../compartidos/compartidos.module';
-import { MenuComponent } from '../compartidos/menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   //TODOS LOS COMPONENTES
   declarations: [
@@ -14,7 +14,8 @@ import { MenuComponent } from '../compartidos/menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CompartidosModule
+    CompartidosModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

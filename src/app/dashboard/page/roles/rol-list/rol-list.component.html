@@ -22,28 +22,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="col-md-2">Administrador</td>
+        <tr *ngFor="let rol of roles">
+          <td class="col-md-2">{{ rol.nombre}}</td>
           <td class="col-md-2">
             <div class="row ">
-              <i class="bi bi-pencil col-md-2 icon-editar"></i>
-              <i class="bi bi-trash col-md-2 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">Costurera</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-2 icon-editar"></i>
-              <i class="bi bi-trash col-md-2 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">Tapicero</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-2 icon-editar"></i>
-              <i class="bi bi-trash col-md-2 icon-delete"></i>
+              <i class="bi bi-pencil col-md-2 icon-editar" (click)="editar(rol.idRol)"></i>
+              <i class="bi bi-trash col-md-2 icon-delete" (click)="eliminar(rol.idRol)"></i>
             </div>
         </tr>
       </tbody>

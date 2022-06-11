@@ -1,64 +1,118 @@
 <app-titulo [titulo]="nombre"></app-titulo>
 <div class="row form-center">
-  <form class="col-md-8">
+  <form class="col-md-8" [formGroup]="formUsuario">
     <div class="form-group row mt-4">
       <div class="col-md-5">
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Nombre">
+        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" formControlName="nombres"
+          [ngClass]="{ 'is-invalid': validaciones && nombres.errors }">
+        <div *ngIf="validaciones && nombres.errors" class="invalid-feedback">
+          <div *ngIf="nombres.errors.required">Campo obligatorio</div>
+        </div>
       </div>
       <div class="col-md-5">
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Apellido">
+        <input type="text" class="form-control" id="inputApellido" placeholder="Apellido" formControlName="apellidos"
+          [ngClass]="{ 'is-invalid': validaciones && apellidos.errors }">
+        <div *ngIf="validaciones && apellidos.errors" class="invalid-feedback">
+          <div *ngIf="apellidos.errors.required">Campo obligatorio</div>
+        </div>
+
       </div>
     </div>
     <div class="form-group row mt-3">
       <div class="col-md-5">
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cedula">
+        <input type="number" class="form-control" id="inputCedula" placeholder="Cedula" formControlName="cedula"
+          [ngClass]="{ 'is-invalid': validaciones && cedula.errors }">
+        <div *ngIf="validaciones && cedula.errors" class="invalid-feedback">
+          <div *ngIf="cedula.errors.required">Campo obligatorio</div>
+        </div>
+
       </div>
       <div class="col-md-5">
-        <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Correo electronico">
+        <input type="email" class="form-control" id="inputCorreoElectronico" placeholder="Correo electronico"
+          formControlName="correo" [ngClass]="{ 'is-invalid': validaciones && correo.errors }">
+        <div *ngIf="validaciones && correo.errors" class="invalid-feedback">
+          <div *ngIf="correo.errors.required">Campo obligatorio</div>
+          <div *ngIf="correo.errors.email">Ingrese un email valido</div>
+        </div>
+
       </div>
     </div>
     <div class="form-group row mt-3">
       <div class="col-md-5">
-        <select class="custom-select form-control">
-          <option selected>Seleccione genero</option>
-          <option value="1">Femenino</option>
-          <option value="2">Masculino</option>
-          <option value="3">Otro</option>
+        <select class="custom-select form-control" formControlName="genero"
+          [ngClass]="{ 'is-invalid': validaciones && genero.errors }">
+          <option value="" selected>Seleccione genero</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Otro">Otro</option>
         </select>
+        <div *ngIf="validaciones && genero.errors" class="invalid-feedback">
+          <div *ngIf="genero.errors.required">Campo obligatorio</div>
+        </div>
       </div>
       <div class="col-md-5">
-        <select class="custom-select form-control">
-          <option selected>Seleccione rol</option>
-          <option value=" 1">Administrador</option>
+        <select class="custom-select form-control" formControlName="idRol"
+          [ngClass]="{ 'is-invalid': validaciones && idRol.errors }">
+          <option value="" selected>Seleccione rol</option>
+          <option value="1">Administrador</option>
           <option value="2">Secretaria</option>
           <option value="3">Otro</option>
         </select>
+        <div *ngIf="validaciones && idRol.errors" class="invalid-feedback">
+          <div *ngIf="idRol.errors.required">Campo obligatorio</div>
+        </div>
+
       </div>
     </div>
     <div class="form-group row mt-3">
       <div class="col-md-5">
-        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Fecha de ingreso">
+        <input type="date" class="form-control" id="inputFechaIngreso" placeholder="Fecha de ingreso"
+          formControlName="fechaIngreso" [ngClass]="{ 'is-invalid': validaciones && fechaIngreso.errors }">
+        <div *ngIf="validaciones && fechaIngreso.errors" class="invalid-feedback">
+          <div *ngIf="fechaIngreso.errors.required">Campo obligatorio</div>
+        </div>
+
       </div>
       <div class="col-md-5">
-        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Fecha de nacimiento">
+        <input type="text" class="form-control" id="inputLugarDeNacimiento" placeholder="Lugar de nacimiento"
+          formControlName="lugarNacimiento" [ngClass]="{ 'is-invalid': validaciones && lugarNacimiento.errors }">
+        <div *ngIf="validaciones && lugarNacimiento.errors" class="invalid-feedback">
+          <div *ngIf="lugarNacimiento.errors.required">Campo obligatorio</div>
+        </div>
       </div>
     </div>
     <div class="form-group row mt-3">
       <div class="col-md-5">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+        <input type="password" class="form-control" id="inputContrasena" placeholder="Contraseña"
+          formControlName="contrasena" [ngClass]="{ 'is-invalid': validaciones && contrasena.errors }">
+        <div *ngIf="validaciones && contrasena.errors" class="invalid-feedback">
+          <div *ngIf="contrasena.errors.required">Campo obligatorio</div>
+        </div>
+
       </div>
       <div class="col-md-5">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repetir Contraseña">
+        <input type="password" class="form-control" id="inputRepetirContrasena" placeholder="Repetir Contraseña"
+          formControlName="repetirContrasena" [ngClass]="{ 'is-invalid': validaciones && repetirContrasena.errors }">
+        <div *ngIf="validaciones && repetirContrasena.errors" class="invalid-feedback">
+          <div *ngIf="repetirContrasena.errors.required">Campo obligatorio</div>
+        </div>
+
       </div>
     </div>
     <div class="form-group row mt-3">
       <div class="col-md-5">
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Celular">
+        <input type="number" class="form-control" id="inputCelular" placeholder="Celular" formControlName="celular"
+          [ngClass]="{ 'is-invalid': validaciones && celular.errors }">
+        <div *ngIf="validaciones && celular.errors" class="invalid-feedback">
+          <div *ngIf="celular.errors.required">Campo obligatorio</div>
+        </div>
       </div>
     </div>
     <div class=" text-center">
-      <button type="button" class="btn btn-secondary btn-lg mt-4">Crear usuario</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="!id" (click)="guardar()">Crear
+        usuario</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="id" (click)="editar()">Editar
+        usuario</button>
     </div>
   </form>
 </div>

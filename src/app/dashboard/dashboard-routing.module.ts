@@ -25,7 +25,17 @@ const routes: Routes = [
         path: 'usuario/listar', component: UsuarioListComponent
       },
       {
+        path: 'usuario/crear', component: UsuarioCrearComponent
+      },
+      {
+        path: 'usuario/editar/:id', component: UsuarioCrearComponent
+      },
+      {
         path: 'rol/crear', component: RolCrearComponent
+      },
+      {
+        path: 'rol/editar/:id', component: RolCrearComponent
+
       },
       {
         path: 'materiaprima/crear', component: MateriaPrimaCrearComponent
@@ -43,9 +53,6 @@ const routes: Routes = [
         path: 'rol/listar', component: RolListComponent
       },
       {
-        path: 'usuario/crear', component: UsuarioCrearComponent
-      },
-      {
         path: 'mueble/crear', component: MuebleCrearComponent
       },
       {
@@ -57,22 +64,6 @@ const routes: Routes = [
       {
         path: 'venta/listar', component: VentasListarComponent
       }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     ]
   }
 ];

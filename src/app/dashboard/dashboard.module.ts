@@ -1,6 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+import { NgxSpinnerModule } from "ngx-spinner";
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CompartidosModule } from '../compartidos/compartidos.module';
@@ -18,6 +22,9 @@ import { VentasModalComponent } from './page/ventas/ventas-modal/ventas-modal.co
 import { MuebleCrearComponent } from './page/muebles/mueble-crear/mueble-crear.component';
 import { MuebleListarComponent } from './page/muebles/mueble-listar/mueble-listar.component';
 import { RouterModule } from '@angular/router';
+import { UsuarioService } from './servicios/usuario.service';
+import { RolService } from './servicios/rol.service';
+import { MensajesService } from './servicios/mensajes.service';
 
 
 @NgModule({
@@ -38,10 +45,22 @@ import { RouterModule } from '@angular/router';
     MuebleListarComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     DashboardRoutingModule,
     CompartidosModule,
-    RouterModule
-  ]
+    RouterModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+  ],
+  providers: [
+    UsuarioService,
+    RolService,
+    MensajesService,
+    DatePipe,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardModule { }
+
+export class AppModule { }

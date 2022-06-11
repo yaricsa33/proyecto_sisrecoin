@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TituloComponent implements OnInit {
 
   @Input() titulo: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
