@@ -1,4 +1,4 @@
-<app-titulo [titulo]="nombre"></app-titulo>
+<app-titulo [titulo]="nombreTitulo"></app-titulo>
 <div class="row mt-5 centrar-tablas">
   <div class="col-md-8">
     <div class="row">
@@ -17,45 +17,31 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Item</th>
-          <th>Nombre</th>
-          <th>Fecha de entrega</th>
-          <th>Costo</th>
-          <th>Opciones</th>
+          <th class="col-md-1">Id</th>
+          <th class="col-md-2">Nombre</th>
+          <th class="col-md-2">Nombre cliente</th>
+          <th class="col-md-3">Fecha estimada de entrega</th>
+          <th class="col-md-1">Estado</th>
+          <th class="col-md-2">Opciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="col-md-2">1</td>
-          <td class="col-md-2">sala oslo</td>
-          <td class="col-md-2">19-02-2022</td>
-          <td class="col-md-2">11.000</td>
+        <tr *ngFor="let muebles of mueble">
+          <td class="col-md-1">{{muebles.idMueble}}</td>
+          <td class="col-md-2">{{muebles.nombre}}</td>
+          <td class="col-md-2">{{muebles.nombreCliente}}</td>
+          <td class="col-md-2">{{muebles.fechaEstimadaEntrega | date:'dd-MM-yyyy'}}</td>
+          <td class="col-md-2" *ngIf="muebles.estado == 1"><span class="badge rounded-pill bg-warning text-dark">En
+              Fabricación</span>
+          </td>
+          <td class="col-md-2" *ngIf="muebles.estado == 2"><span
+              class="badge rounded-pill bg-success text-dark">Fabricado</span></td>
+          <td class="col-md-2" *ngIf="muebles.estado == 3"><span
+              class="badge rounded-pill bg-info text-dark">Vendido</span></td>
           <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">2</td>
-          <td class="col-md-2">comedor </td>
-          <td class="col-md-2">25-02-2021</td>
-          <td class="col-md-2">20.000</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">3</td>
-          <td class="col-md-2">cama</td>
-          <td class="col-md-2">15-07-2020</td>
-          <td class="col-md-2">30.000</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
+            <div class="row">
+              <i class="bi bi-pencil col-md-3 icon-editar" (click)="editar(muebles.idMueble)"></i>
+              <i class="bi bi-trash col-md-3 icon-delete" (click)="eliminar(muebles.idMueble)"></i>
             </div>
         </tr>
       </tbody>

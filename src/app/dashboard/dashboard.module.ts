@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -18,13 +18,17 @@ import { MateriaPrimaCrearComponent } from './page/materiaPrima/materia-prima-cr
 import { MateriaPrimaListarComponent } from './page/materiaPrima/materia-prima-listar/materia-prima-listar.component';
 import { VentasCrearComponent } from './page/ventas/ventas-crear/ventas-crear.component';
 import { VentasListarComponent } from './page/ventas/ventas-listar/ventas-listar.component';
-import { VentasModalComponent } from './page/ventas/ventas-modal/ventas-modal.component';
 import { MuebleCrearComponent } from './page/muebles/mueble-crear/mueble-crear.component';
 import { MuebleListarComponent } from './page/muebles/mueble-listar/mueble-listar.component';
 import { RouterModule } from '@angular/router';
 import { UsuarioService } from './servicios/usuario.service';
 import { RolService } from './servicios/rol.service';
 import { MensajesService } from './servicios/mensajes.service';
+import { PermisoService } from './servicios/permiso.service';
+import { AutenticacionService } from './servicios/autenticacion.service';
+import { MateriaPrimaService } from './servicios/materiaPrima.service';
+import { MuebleService } from './servicios/mueble.service';
+import { VentaService } from './servicios/venta.service';
 
 
 @NgModule({
@@ -40,7 +44,6 @@ import { MensajesService } from './servicios/mensajes.service';
     MateriaPrimaListarComponent,
     VentasCrearComponent,
     VentasListarComponent,
-    VentasModalComponent,
     MuebleCrearComponent,
     MuebleListarComponent
   ],
@@ -51,13 +54,19 @@ import { MensajesService } from './servicios/mensajes.service';
     CompartidosModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     NgxSpinnerModule,
   ],
   providers: [
     UsuarioService,
     RolService,
+    PermisoService,
     MensajesService,
     DatePipe,
+    AutenticacionService,
+    MateriaPrimaService,
+    MuebleService,
+    VentaService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -12,6 +12,9 @@ export class UsuarioService {
     return this.http.get('http://localhost:3000/usuario');
   }
 
+  getUsuariosParaMueble() {
+    return this.http.get('http://localhost:3000/usuario/muebles');
+  }
 
   getUsuarioPorId(id: number) {
     return this.http.get(`http://localhost:3000/usuario/${id}`);
@@ -29,4 +32,6 @@ export class UsuarioService {
   deleteUsuario(id: number) {
     return this.http.delete(`http://localhost:3000/usuario/${id}`);
   }
+
+
 }

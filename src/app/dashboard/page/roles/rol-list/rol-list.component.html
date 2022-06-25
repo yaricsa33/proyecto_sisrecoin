@@ -18,12 +18,14 @@
       <thead>
         <tr>
           <th>Rol</th>
+          <th>Descripcion</th>
           <th>Opciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let rol of roles">
           <td class="col-md-2">{{ rol.nombre}}</td>
+          <td class="col-md-2">{{ rol.descripcion}}</td>
           <td class="col-md-2">
             <div class="row ">
               <i class="bi bi-pencil col-md-2 icon-editar" (click)="editar(rol.idRol)"></i>

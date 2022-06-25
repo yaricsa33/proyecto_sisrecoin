@@ -1,20 +1,23 @@
-<app-titulo [titulo]="nombre"></app-titulo>
+<app-titulo [titulo]="nombreTitulo"></app-titulo>
 <div class="row form-center">
-  <form class="col-md-6 mt-4 ">
+  <form class="col-md-6 mt-4" [formGroup]=" formMateriaPrima">
     <div class="row">
-      <input class="form-control" type="text" placeholder="Nombre">
+      <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
     </div>
     <div class="row mt-3">
-      <input class="form-control" type="number" placeholder="Valor">
+      <input class="form-control" type="number" placeholder="Valor" formControlName="valor">
     </div>
     <div class="row mt-3">
-      <input class="form-control" type="number" placeholder="Unidades">
+      <input class="form-control" type="number" placeholder="Unidades" formControlName="unidades">
     </div>
     <div class=" row mt-5">
-      <textarea class="form-control" placeholder="Descripcion " rows="7"></textarea>
+      <textarea class="form-control" placeholder="Descripcion " formControlName="descripcion" rows="7"></textarea>
     </div>
     <div class=" text-center">
-      <button type="button" class="btn btn-secondary btn-lg mt-4">Crear materia prima</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="!id" (click)="guardar()">Crear materia
+        prima</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="id" (click)="editar()">Editar materia
+        prima</button>
     </div>
   </form>
 </div>

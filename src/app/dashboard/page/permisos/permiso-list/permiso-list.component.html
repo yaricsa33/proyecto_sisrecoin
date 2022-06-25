@@ -17,45 +17,25 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Item</th>
+          <th>Id</th>
           <th>Nombre</th>
+          <th>Descripcion</th>
           <th>Url</th>
-          <th>Rol</th>
+          <th>Id rol</th>
           <th>Opciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="col-md-2">1</td>
-          <td class="col-md-2">permiso crear usuario</td>
-          <td class="col-md-2">90.000</td>
-          <td class="col-md-2">administrador</td>
+        <tr *ngFor="let permi of permiso">
+          <td class="col-md-2">{{ permi.idPermiso}}</td>
+          <td class="col-md-2">{{ permi.nombre}}</td>
+          <td class="col-md-2">{{ permi.descripcion}}</td>
+          <td class="col-md-2">{{ permi.url}}</td>
+          <td class="col-md-2">{{ permi.idRol}}</td>
           <td class="col-md-2">
             <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">2</td>
-          <td class="col-md-2">permiso crear venta</td>
-          <td class="col-md-2">10.000</td>
-          <td class="col-md-2">costurera</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">3</td>
-          <td class="col-md-2">permiso editar venta</td>
-          <td class="col-md-2">20.000</td>
-          <td class="col-md-2">tapicero</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
+              <i class="bi bi-pencil col-md-3 icon-editar" (click)="editar(permi.idPermiso)"></i>
+              <i class="bi bi-trash col-md-2 icon-delete" (click)="eliminar(permi.idPermiso)"></i>
             </div>
         </tr>
       </tbody>

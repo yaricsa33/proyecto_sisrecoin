@@ -38,31 +38,43 @@ const routes: Routes = [
 
       },
       {
-        path: 'materiaprima/crear', component: MateriaPrimaCrearComponent
+        path: 'permiso/editar/:id', component: PermisoCrearComponent
       },
       {
         path: 'materiaprima/listar', component: MateriaPrimaListarComponent
       },
       {
-        path: 'permiso/crear', component: PermisoCrearComponent
+        path: 'materiaprima/crear', component: MateriaPrimaCrearComponent
       },
       {
-        path: 'venta/crear', component: VentasCrearComponent
+        path: 'materiaprima/editar/:id', component: MateriaPrimaCrearComponent
+      },
+      {
+        path: 'permiso/crear', component: PermisoCrearComponent
       },
       {
         path: 'rol/listar', component: RolListComponent
       },
       {
+        path: 'mueble/listar', component: MuebleListarComponent
+      },
+      {
         path: 'mueble/crear', component: MuebleCrearComponent
       },
       {
-        path: 'mueble/listar', component: MuebleListarComponent
+        path: 'mueble/editar/:id', component: MuebleCrearComponent
       },
       {
         path: 'permiso/listar', component: PermisoListComponent
       },
       {
         path: 'venta/listar', component: VentasListarComponent
+      },
+      {
+        path: 'venta/crear', component: VentasCrearComponent
+      },
+      {
+        path: 'venta/editar/:id', component: VentasCrearComponent
       }
     ]
   }

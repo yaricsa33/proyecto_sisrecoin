@@ -17,7 +17,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Item</th>
+          <th>Id</th>
           <th>Nombre cliente</th>
           <th>Fecha de entrega</th>
           <th>Valor final</th>
@@ -25,37 +25,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="col-md-2">1</td>
-          <td class="col-md-2">carlos Gomez</td>
-          <td class="col-md-2">12-05-2021</td>
-          <td class="col-md-2">11.000</td>
+        <tr *ngFor="let ven of ventas">
+          <td class="col-md-2">{{ ven.idVenta }}</td>
+          <td class="col-md-2">{{ ven.nombreCliente }}</td>
+          <td class="col-md-2">{{ ven.fechaEntrega }}</td>
+          <td class="col-md-2">{{ ven.valorFinal }}</td>
           <td class="col-md-2">
             <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">2</td>
-          <td class="col-md-2">mateo castro</td>
-          <td class="col-md-2">10-02-2022</td>
-          <td class="col-md-2">20.000</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">3</td>
-          <td class="col-md-2">Patricia Lemus</td>
-          <td class="col-md-2">20-05-2021</td>
-          <td class="col-md-2">30.000</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
+              <i class="bi bi-pencil col-md-3 icon-editar" (click)="editar(ven.idVenta)"></i>
+              <i class="bi bi-trash col-md-3 icon-delete" (click)="eliminar(ven.idVenta)"></i>
             </div>
         </tr>
       </tbody>

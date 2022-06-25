@@ -8,11 +8,11 @@
         <i class="bi bi-person-circle icon-user"></i>
       </div>
       <div class="row col-md-2 nombre-menu">
-        <div class="row user-nombre">Edwin Camacho</div>
-        <div class="row user-rol">Administrador</div>
+        <div class="row user-nombre">{{ user.nombres }}</div>
+        <div class="row user-rol">{{ user.nombreRol }}</div>
       </div>
       <div class="col-md-1 icono-logout-menu">
-        <i class="bi bi-box-arrow-left icon-salir"></i>
+        <i class="bi bi-box-arrow-left icon-salir" (click)="logout()"></i>
       </div>
     </div>
     <div class="row">

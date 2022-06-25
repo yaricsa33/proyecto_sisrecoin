@@ -17,47 +17,28 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Item</th>
+          <th>Id</th>
           <th>Nombre</th>
-          <th>valor</th>
+          <th>Descripcion</th>
           <th>Unidades</th>
+          <th>Valor</th>
           <th>Opciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="col-md-2">1</td>
-          <td class="col-md-2">Tela</td>
-          <td class="col-md-2">90.000</td>
-          <td class="col-md-2">11</td>
+        <tr *ngFor="let materia of materiaPrima">
+          <td class="col-md-2">{{materia.idMateriaPrima}}</td>
+          <td class="col-md-2">{{materia.nombre}}</td>
+          <td class="col-md-2">{{materia.descripcion}}</td>
+          <td class="col-md-2">{{materia.unidades}}</td>
+          <td class="col-md-2">{{materia.valor}}</td>
           <td class="col-md-2">
             <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
+              <i class="bi bi-pencil col-md-3 icon-editar" (click)="editar(materia.idMateriaPrima)"></i>
+              <i class="bi bi-trash col-md-3 icon-delete" (click)="eliminar(materia.idMateriaPrima)"></i>
             </div>
         </tr>
-        <tr>
-          <td class="col-md-2">2</td>
-          <td class="col-md-2">Madera</td>
-          <td class="col-md-2">10.000</td>
-          <td class="col-md-2">20</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
-            </div>
-        </tr>
-        <tr>
-          <td class="col-md-2">3</td>
-          <td class="col-md-2">Tornillos</td>
-          <td class="col-md-2">20.000</td>
-          <td class="col-md-2">30</td>
-          <td class="col-md-2">
-            <div class="row ">
-              <i class="bi bi-pencil col-md-3 icon-editar"></i>
-              <i class="bi bi-trash col-md-3 icon-delete"></i>
-            </div>
-        </tr>
+
       </tbody>
     </table>
   </div>

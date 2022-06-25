@@ -1,14 +1,25 @@
-<app-titulo [titulo]="nombre"></app-titulo>
+<app-titulo [titulo]="nombres"></app-titulo>
 <div class="row form-center">
-  <form class="col-md-6 mt-4 ">
+  <form class="col-md-6 mt-4" [formGroup]="formRol">
     <div class="row">
-      <input class="form-control" type="text" placeholder="nombre">
+      <input class="form-control" type="text" placeholder="nombre"
+        [ngClass]="{ 'is-invalid': validaciones && nombre.errors }" formControlName="nombre">
+      <div *ngIf="validaciones && nombre.errors" class="invalid-feedback">
+        <div *ngIf="nombre.errors.required">Campo obligatorio</div>
+      </div>
     </div>
     <div class=" row mt-5">
-      <textarea class="form-control" placeholder="Descripcion rol" rows="10"></textarea>
+      <textarea class="form-control" placeholder="Descripcion rol" rows="10" formControlName="descripcion"
+        [ngClass]="{ 'is-invalid': validaciones && descripcion.errors }"></textarea>
+      <div *ngIf="validaciones && descripcion.errors" class="invalid-feedback">
+        <div *ngIf="descripcion.errors.required">Campo obligatorio</div>
+      </div>
     </div>
     <div class=" text-center">
-      <button type="button" class="btn btn-secondary btn-lg mt-4">Crear rol</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="!id" (click)="guardar()">Crear
+        rol</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="id" (click)="editar()">Editar
+        rol</button>
     </div>
   </form>
 </div>

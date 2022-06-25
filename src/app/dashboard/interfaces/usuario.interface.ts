@@ -13,6 +13,7 @@ export interface IUsuario {
   correo: string;
   contrasena: string;
   celular: number;
-  idRol: number
+  idRol: number;
+  nombreRol: string;
 
 }

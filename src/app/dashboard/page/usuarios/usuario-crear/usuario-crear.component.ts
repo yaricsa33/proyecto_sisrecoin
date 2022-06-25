@@ -6,6 +6,10 @@ import { IUsuario } from 'src/app/dashboard/interfaces/usuario.interface';
 import { MensajesService } from 'src/app/dashboard/servicios/mensajes.service';
 import { UsuarioService } from 'src/app/dashboard/servicios/usuario.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { RolService } from 'src/app/dashboard/servicios/rol.service';
+import { IRol } from 'src/app/dashboard/interfaces/rol.interface';
+import { ThisReceiver } from '@angular/compiler';
+import { IResponse } from 'src/app/dashboard/interfaces/response.interface';
 
 @Component({
   selector: 'app-usuario-crear',
@@ -18,11 +22,13 @@ export class UsuarioCrearComponent implements OnInit {
   formUsuario: FormGroup = new FormGroup({});
   id: number;
   validaciones = false;
+  roles: IRol[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private _serviceUsuario: UsuarioService,
     private _serviceMensajes: MensajesService,
+    private _serviceRol: RolService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private datePipe: DatePipe,
@@ -41,12 +47,21 @@ export class UsuarioCrearComponent implements OnInit {
     }
 
     this.crearFormulario();
+    this.cargarRoles();
+  }
+
+
+  cargarRoles() {
+    this._serviceRol.getRol().subscribe(({ data }: IResponse) => {
+      this.roles = data;
+      console.log(this.roles);
+    });
   }
 
   cargarUsuario() {
 
     this.spinner.show();
-    this._serviceUsuario.getUsuarioPorId(this.id).subscribe((data: IUsuario) => {
+    this._serviceUsuario.getUsuarioPorId(this.id).subscribe(({ data }: IResponse) => {
       this.nombres.setValue(data.nombres);
       this.apellidos.setValue(data.apellidos);
       this.cedula.setValue(data.cedula);
@@ -61,6 +76,8 @@ export class UsuarioCrearComponent implements OnInit {
       this.spinner.hide();
     })
   }
+
+
 
   crearFormulario() {
 
@@ -85,6 +102,7 @@ export class UsuarioCrearComponent implements OnInit {
     this.validaciones = true;
 
     if (this.formUsuario.invalid) {
+      this.spinner.hide();
       return;
     }
     this._serviceUsuario.postUsuario(this.formUsuario.value).subscribe((data) => {

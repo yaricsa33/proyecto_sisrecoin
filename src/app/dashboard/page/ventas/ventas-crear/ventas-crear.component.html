@@ -1,11 +1,11 @@
 <app-titulo [titulo]="nombre"></app-titulo>
 <div class="row form-center">
-  <form class="col-md-6 mt-4 ">
+  <form class="col-md-6 mt-4 " [formGroup]="formVenta">
     <div class="row">
-      <input class="form-control" type="text" placeholder="Id factura">
+      <input class="form-control" type="text" placeholder="Id factura" formControlName="idFactura">
     </div>
     <div class="row mt-3">
-      <input class="form-control" type="text" placeholder="Nombre del cliente">
+      <input class="form-control" type="text" placeholder="Nombre del cliente" formControlName="nombreCliente">
     </div>
     <div class="row mt-3">
       <div class=" col-md-12 mt-3 div-icon-agregar">
@@ -20,34 +20,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="col-md-4">Sala oslo</td>
-            <td class="col-md-4">1</td>
-            <td class="col-md-4"><input type="number"></td>
-          </tr>
-          <tr>
-            <td class="col-md-4">Sala huevo</td>
-            <td class="col-md-4">2</td>
-            <td class="col-md-4"><input type="number"></td>
-          </tr>
-          <tr>
-            <td class="col-md-4">Sala sapito</td>
-            <td class="col-md-4">3</td>
-            <td class="col-md-4"><input type="number"></td>
+          <tr *ngFor="let muebleS of muebleSeleccionados">
+            <td class="col-md-4">{{ muebleS.nombre }}</td>
+            <td class="col-md-4">{{ muebleS.costoMateriaPrima }}</td>
+            <td class="col-md-4"><input type="number" [(ngModel)]="muebleS.valor" name="valor"
+                [ngModelOptions]="{standalone: true}" (keyup)="obtenerCostoMueble()"></td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="row">
-      <input class="form-control" type="number" placeholder="Valor" disabled>
+      <input class="form-control" type="number" placeholder="Valor" disabled formControlName="valorFinal">
     </div>
     <div class="form-group  mt-3">
       <div class="row">
-        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Fecha de ingreso">
+        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Fecha de Entrega"
+          formControlName="fechaEntrega">
       </div>
     </div>
     <div class=" text-center mt-5">
-      <button type="button" class="btn btn-secondary btn-lg mt-4">Crear venta</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" (click)="guardar()">Crear venta</button>
     </div>
   </form>
 </div>
@@ -79,30 +71,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="col-md-4"> Sala oslo</td>
-                <td class="col-md-4">1</td>
+              <tr *ngFor="let mueble of muebles">
+                <td class="col-md-4"> {{mueble.nombre}}</td>
+                <td class="col-md-4">{{mueble.costoMateriaPrima}}</td>
                 <td class="col-md-4">
                   <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-md-4">Sala huevo</td>
-                <td class="col-md-4">2</td>
-                <td class="col-md-4">
-                  <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-md-4">Sala sapito</td>
-                <td class="col-md-4">3</td>
-                <td class="col-md-4">
-                  <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" [(ngModel)]="mueble.seleccionar">
                   </div>
                 </td>
               </tr>
@@ -112,7 +86,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Seleccionar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)="seleccionarMueble()">Seleccionar</button>
       </div>
     </div>
   </div>

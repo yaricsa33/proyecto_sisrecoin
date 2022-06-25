@@ -54,9 +54,9 @@
         <select class="custom-select form-control" formControlName="idRol"
           [ngClass]="{ 'is-invalid': validaciones && idRol.errors }">
           <option value="" selected>Seleccione rol</option>
-          <option value="1">Administrador</option>
-          <option value="2">Secretaria</option>
-          <option value="3">Otro</option>
+          <option *ngFor="let rol of roles" [value]="rol.idRol">
+            {{ rol.nombre }}
+          </option>
         </select>
         <div *ngIf="validaciones && idRol.errors" class="invalid-feedback">
           <div *ngIf="idRol.errors.required">Campo obligatorio</div>

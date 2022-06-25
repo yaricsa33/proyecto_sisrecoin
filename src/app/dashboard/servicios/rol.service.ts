@@ -22,7 +22,7 @@ export class RolService {
     return this.http.post('http://localhost:3000/rol', rol);
   }
 
-  putUsuario(rol: any) {
+  putActualizarRol(rol: any) {
     return this.http.put('http://localhost:3000/rol', rol);
   }
 

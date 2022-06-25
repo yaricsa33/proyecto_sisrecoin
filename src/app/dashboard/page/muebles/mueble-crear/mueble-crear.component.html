@@ -1,14 +1,14 @@
-<app-titulo [titulo]="nombre"></app-titulo>
+<app-titulo [titulo]="nombreTitulo"></app-titulo>
 <div class="row form-center height-content-form">
-  <form class="col-md-8">
+  <form class="col-md-8" [formGroup]="formMueble">
     <div class="form-group row mt-4 ">
       <div class="col-md-6">
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Nombre">
+        <input type="text" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Nombre"
+          formControlName="nombre">
       </div>
       <div class="col-md-6">
-        <select class="custom-select form-control">
-          <option selected>Seleccione de mueble</option>
+        <select class="custom-select form-control" formControlName="tipo">
+          <option value="" selected>Seleccione mueble</option>
           <option value="1">Sala</option>
           <option value="2">Comedor</option>
           <option value="3">Basecama</option>
@@ -17,7 +17,13 @@
     </div>
     <div class="form-group row mt-4">
       <div class=" col-md-12">
-        <textarea class="form-control" placeholder="Descripcion " rows="2"></textarea>
+        <input type="text" class="form-control" id="nombreCliente" aria-describedby="nombreCliente"
+          placeholder="nombreCliente" formControlName="nombreCliente">
+      </div>
+    </div>
+    <div class="form-group row mt-4">
+      <div class=" col-md-12">
+        <textarea class="form-control" placeholder="Descripcion " rows="2" formControlName="descripcion"></textarea>
       </div>
     </div>
     <div class="row mt-5 centrar-tablas">
@@ -33,7 +39,7 @@
         <table class="table ">
           <thead>
             <tr>
-              <th>Item</th>
+              <th>Id</th>
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Rol</th>
@@ -41,26 +47,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="col-md-2">1</td>
-              <td class="col-md-2">Edwin</td>
-              <td class="col-md-2">Camacho</td>
-              <td class="col-md-2">Tapicero</td>
-              <td class="col-md-2"><input type="text">
-            </tr>
-            <tr>
-              <td class="col-md-2">2</td>
-              <td class="col-md-2">Nicolas</td>
-              <td class="col-md-2">Rubiano</td>
-              <td class="col-md-2">Trabajador</td>
-              <td class="col-md-2"><input type="text">
-            </tr>
-            <tr>
-              <td class="col-md-2">3</td>
-              <td class="col-md-2">Jesica</td>
-              <td class="col-md-2">Camacho</td>
-              <td class="col-md-2">Costurera</td>
-              <td class="col-md-2"><input type="text">
+            <tr *ngFor="let user of usuariosSeleccionados">
+              <td class="col-md-3"> {{ user.idUsuario }}</td>
+              <td class="col-md-3"> {{ user.nombres }}</td>
+              <td class="col-md-3">{{ user.apellidos }}</td>
+              <td class="col-md-3">{{ user.nombreRol }}</td>
+              <td class="col-md-2"><input type="number" [(ngModel)]="user.valor" name="valor"
+                  [ngModelOptions]="{standalone: true}" (keyup)="obtenerCostoMueble();"></td>
             </tr>
           </tbody>
         </table>
@@ -88,27 +81,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="col-md-2">1</td>
-              <td class="col-md-2">Tela</td>
-              <td class="col-md-2">90.000</td>
-              <td class="col-md-2">11</td>
-              <td class="col-md-2"><input type="text">
+            <tr *ngFor="let materia of materiasPrimasSeleccionados">
+              <td class="col-md-2">{{ materia.idMateriaPrima }}</td>
+              <td class="col-md-2">{{ materia.nombre }}</td>
+              <td class="col-md-2">{{ materia.valor }}</td>
+              <td class="col-md-2">{{ materia.unidades }}</td>
+              <td class="col-md-2"><input type="number" [(ngModel)]="materia.unidadesDisponibles" name="unidades"
+                  [ngModelOptions]="{standalone: true}" (keyup)="obtenerCostoMueble()"></td>
             </tr>
-            <tr>
-              <td class="col-md-2">2</td>
-              <td class="col-md-2">Madera</td>
-              <td class="col-md-2">10.000</td>
-              <td class="col-md-2">20</td>
-              <td class="col-md-2"><input type="text">
-            </tr>
-            <tr>
-              <td class="col-md-2">3</td>
-              <td class="col-md-2">Tornillos</td>
-              <td class="col-md-2">20.000</td>
-              <td class="col-md-2">30</td>
-              <td class="col-md-2"><input type="text">
-            </tr>
+
           </tbody>
         </table>
       </div>
@@ -116,14 +97,16 @@
     <div class="form-group row mt-4">
       <div class="col-md-6">
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Costo materia prima">
+          placeholder="Costo materia prima" formControlName="costoMateriaPrima" disabled>
       </div>
       <div class="col-md-6">
-        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Fecha estimada de entrega">
+        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Fecha estimada de entrega"
+          formControlName="fechaEstimadaEntrega">
       </div>
     </div>
     <div class=" text-center mb-4 mt-4">
-      <button type="button" class="btn btn-secondary btn-lg mt-4">Crear mueble</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="!id" (click)="guardar()">Crear mueble</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="id" (click)="editar()">Editar mueble</button>
     </div>
   </form>
 </div>
@@ -158,33 +141,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="col-md-3"> Carlos</td>
-                <td class="col-md-3">Ramos</td>
-                <td class="col-md-3">Tapicero</td>
+              <tr *ngFor="let user of usuarios">
+                <td class="col-md-3"> {{ user.nombres }}</td>
+                <td class="col-md-3">{{ user.apellidos }}</td>
+                <td class="col-md-3">{{ user.nombreRol }}</td>
                 <td class="col-md-3">
                   <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-md-3">Sandra</td>
-                <td class="col-md-3">Rojas</td>
-                <td class="col-md-3">Costurera</td>
-                <td class="col-md-3">
-                  <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-md-3">Vanesa</td>
-                <td class="col-md-3">lopez</td>
-                <td class="col-md-3">Costurera</td>
-                <td class="col-md-3">
-                  <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" [(ngModel)]="user.seleccionar">
                   </div>
                 </td>
               </tr>
@@ -194,7 +157,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Seleccionar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)="seleccionarUsuarios()">Seleccionar</button>
       </div>
     </div>
   </div>
@@ -230,33 +194,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="col-md-3"> Tela</td>
-                <td class="col-md-3">10.000</td>
-                <td class="col-md-3">1</td>
+              <tr *ngFor="let materia of materiasPrimas">
+                <td class="col-md-3"> {{ materia.nombre }}</td>
+                <td class="col-md-3">{{ materia.valor }}</td>
+                <td class="col-md-3">{{ materia.unidades }}</td>
                 <td class="col-md-3">
                   <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-md-3">Madera</td>
-                <td class="col-md-3">20.000</td>
-                <td class="col-md-3">2</td>
-                <td class="col-md-3">
-                  <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-md-3">Espuma</td>
-                <td class="col-md-3">30.000</td>
-                <td class="col-md-3">3</td>
-                <td class="col-md-3">
-                  <div class="form-check modal-checkbox">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" [(ngModel)]="materia.seleccionar">
                   </div>
                 </td>
               </tr>
@@ -266,7 +210,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Seleccionar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)="seleccionarMateriaPrima()">Seleccionar</button>
       </div>
     </div>
   </div>

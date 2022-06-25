@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IUsuario } from '../interfaces/usuario.interface';
+import { AutenticacionService } from '../servicios/autenticacion.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  user: IUsuario;
+
+  constructor(private _serviceAutenticacion: AutenticacionService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = this._serviceAutenticacion.getUsuario();
+    console.log(this.user);
+  }
+
+  logout() {
+    this._serviceAutenticacion.logout();
+    this.router.navigate(['autenticacion/login'])
   }
 
 }

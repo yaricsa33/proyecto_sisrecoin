@@ -6,6 +6,10 @@ import { CambiarContrasenaComponent } from './cambiar-contrasena/cambiar-contras
 import { LoginComponent } from './login/login.component';
 import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AutenticacionService } from '../dashboard/servicios/autenticacion.service';
+import { HttpClientModule } from '@angular/common/http';
+import { MensajesService } from '../dashboard/servicios/mensajes.service';
 
 
 @NgModule({
@@ -17,7 +21,14 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     AutenticacionRoutingModule,
+    ReactiveFormsModule,
+    RouterModule,
+    HttpClientModule,
     RouterModule
+  ],
+  providers: [
+    AutenticacionService,
+    MensajesService,
   ]
 })
 export class AutenticacionModule { }

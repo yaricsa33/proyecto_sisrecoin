@@ -1,27 +1,52 @@
-<app-titulo [titulo]="nombre"></app-titulo>
+<app-titulo [titulo]="nombreTitulo"></app-titulo>
 <div class="row form-center">
-  <form class="col-md-6 mt-4 ">
+  <form class="col-md-6 mt-4" [formGroup]="formPermiso">
     <div class="row">
-      <input class="form-control" type="text" placeholder="Nombre">
-    </div>
-    <div class=" row mt-4">
-      <select class="custom-select form-control ">
-        <option selected>Seleccione url</option>
-        <option value=" 1">Administrador</option>
-        <option value="2">Secretaria</option>
-        <option value="3">Otro</option>
-      </select>
+      <input class="form-control" type="text" placeholder="Nombre"
+        [ngClass]="{ 'is-invalid': validaciones && nombre.errors }" formControlName="nombre">
+      <div *ngIf="validaciones && nombre.errors" class="invalid-feedback">
+        <div *ngIf="nombre.errors.required">Campo obligatorio</div>
+      </div>
     </div>
     <div class="row mt-4">
-      <select class="custom-select form-control">
-        <option selected>Seleccione rol</option>
+      <input class="form-control" type="text" placeholder="Descripcion"
+        [ngClass]="{ 'is-invalid': validaciones && descripcion.errors }" formControlName="descripcion">
+      <div *ngIf="validaciones && descripcion.errors" class="invalid-feedback">
+        <div *ngIf="descripcion.errors.required">Campo obligatorio</div>
+      </div>
+    </div>
+    <div class=" row mt-4">
+      <select class="custom-select form-control " [ngClass]="{ 'is-invalid': validaciones && url.errors }"
+        formControlName="url">
+        <option selected value="">Seleccione permiso</option>
+        <option value="mueble/crear">Crear mueble</option>
+        <option value="permiso/crear">Crear permiso</option>
+        <option value="materiaprima/crear">Crear materia prima</option>
+        <option value="rol/crear">Crear rol</option>
+        <option value="usuario/crear">Crear usuario</option>
+      </select>
+      <div *ngIf="validaciones && url.errors" class="invalid-feedback">
+        <div *ngIf="url.errors.required">Campo obligatorio</div>
+      </div>
+
+    </div>
+    <div class="row mt-4">
+      <select class="custom-select form-control" [ngClass]="{ 'is-invalid': validaciones && idRol.errors }"
+        formControlName="idRol">
+        <option value="" selected>Seleccione rol</option>
         <option value=" 1">Administrador</option>
         <option value="2">Secretaria</option>
         <option value="3">Otro</option>
       </select>
+      <div *ngIf="validaciones && idRol.errors" class="invalid-feedback">
+        <div *ngIf="idRol.errors.required">Campo obligatorio</div>
+      </div>
+
     </div>
     <div class=" text-center mt-5">
-      <button type="button" class="btn btn-secondary btn-lg mt-4">Crear permiso</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="!id" (click)="guardar()">Crear permiso</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="id" (click)="editar()">Editar
+        permiso</button>
     </div>
   </form>
 </div>
