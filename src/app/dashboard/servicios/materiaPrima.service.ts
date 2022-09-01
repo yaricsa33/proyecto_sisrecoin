@@ -10,7 +10,7 @@ export class MateriaPrimaService {
   constructor(private http: HttpClient) { }
 
   getMateriaPrima() {
-    return this.http.get('${environment.urlBackLocal}/materiaPrima')
+    return this.http.get(`${environment.urlBackLocal}/materiaPrima`)
   }
 
   eliminarMateriaPrimaPorId(id: number) {
@@ -22,11 +22,11 @@ export class MateriaPrimaService {
   }
 
   postInsertarMateriaPrima(materiaPrima: any) {
-    return this.http.post('${environment.urlBackLocal}/materiaPrima', materiaPrima)
+    return this.http.post(`${environment.urlBackLocal}/materiaPrima`, materiaPrima)
   }
 
   putActualizarMateriaPrima(materiaPrima: any) {
-    return this.http.put('${environment.urlBackLocal}/materiaPrima', materiaPrima)
+    return this.http.put(`${environment.urlBackLocal}/materiaPrima`, materiaPrima)
   }
 
 
