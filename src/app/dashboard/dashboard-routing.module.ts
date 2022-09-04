@@ -13,7 +13,8 @@ import { UsuarioCrearComponent } from './page/usuarios/usuario-crear/usuario-cre
 import { UsuarioListComponent } from './page/usuarios/usuario-list/usuario-list.component';
 import { VentasCrearComponent } from './page/ventas/ventas-crear/ventas-crear.component';
 import { VentasListarComponent } from './page/ventas/ventas-listar/ventas-listar.component';
-
+import { MueblesAsignadosListarComponent } from './page/mueblesAsignados/muebles-asignados-listar/muebles-asignados-listar.component';
+import { InicioComponent } from './page/inicio/inicio.component';
 const routes: Routes = [
   {
     path: '', component: HomeComponent,
@@ -62,6 +63,9 @@ const routes: Routes = [
         path: 'mueble/crear', component: MuebleCrearComponent
       },
       {
+        path: 'mueble/asignados', component: MueblesAsignadosListarComponent
+      },
+      {
         path: 'mueble/editar/:id', component: MuebleCrearComponent
       },
       {
@@ -75,6 +79,9 @@ const routes: Routes = [
       },
       {
         path: 'venta/editar/:id', component: VentasCrearComponent
+      },
+      {
+        path: 'inicio', component: InicioComponent
       }
     ]
   }

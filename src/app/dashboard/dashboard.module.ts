@@ -29,6 +29,8 @@ import { AutenticacionService } from './servicios/autenticacion.service';
 import { MateriaPrimaService } from './servicios/materiaPrima.service';
 import { MuebleService } from './servicios/mueble.service';
 import { VentaService } from './servicios/venta.service';
+import { MueblesAsignadosListarComponent } from './page/mueblesAsignados/muebles-asignados-listar/muebles-asignados-listar.component';
+import { InicioComponent } from './page/inicio/inicio.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { VentaService } from './servicios/venta.service';
     VentasCrearComponent,
     VentasListarComponent,
     MuebleCrearComponent,
-    MuebleListarComponent
+    MuebleListarComponent,
+    MueblesAsignadosListarComponent,
+    InicioComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,157 @@
+<app-titulo [titulo]="nombreTitulo"></app-titulo>
+<div class="row mt-5 centrar-tablas">
+  <div class="col-md-8">
+    <table class="table">
+    <thead>
+        <tr>
+          <th class="col-md-1">Id</th>
+          <th class="col-md-2">Mueble</th>
+          <th class="col-md-2">Tipo  </th>
+          <th class="col-md-3">Fecha de entrega</th>
+          <th class="col-md-2">Finalizado</th>
+          <th class="col-md-2">Detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let muebles of mueble">
+          <td class="col-md-1">{{muebles.idMueble}}</td>
+          <td class="col-md-2">{{muebles.nombre}}</td>
+          <td class="col-md-2">{{muebles.tipo}}</td>
+          <td class="col-md-2">{{muebles.fechaEstimadaEntrega}}</td>
+          <td class="col-md-2">
+            <div class="form-check modal-checkbox">
+              <input type="checkbox" class="form-check-input">
+            </div>
+          </td>
+          <td class="col-md-2">
+            <div class="center col-md-3" >
+              <i class="bi bi-eye-fill" data-bs-toggle="modal" data-bs-target="#detallesMuebles"></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+        <button type="button" class="btn btn-secondary btn-lg mt-5">Guardar cambios </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal detalles mueble -->
+
+
+<div class="modal fade" id="detallesMuebles" tabindex="-1" aria-labelledby="detallesModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header estiloModal">
+
+        <h5 class="modal-title" id="detallesModalLabel">Detalle del pedido  <i class="bi bi-cart-check"></i></h5>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+        <div class="row mt-3">
+          <div class="col-md-4">
+          </div>
+          <div class="row g-2">
+            <div class="col-md-4">
+              <div class="form-floating">
+                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="" value="Andres herrera">
+                <label for="floatingInputGrid">Nombre cliente</label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-floating">
+                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="" value="sala">
+                <label for="floatingInputGrid">Tipo</label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-floating">
+                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="" value="oslo">
+                <label for="floatingInputGrid">Nombre mueble</label>
+              </div>
+            </div>
+
+            <div class="col-md-6" >
+              <div class="form-floating">
+                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="Descripcion" value="la sala debe llevar">
+                <label for="floatingInputGrid">Descripcion</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="date" disabled class="form-control" id="floatingInputGrid" placeholder="" value="30-10-11">
+                <label for="floatingInputGrid">Fecha de entrega</label>
+              </div>
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" >
+                    <i class="bi bi-people-fill"></i> Personal asignado 
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <div >
+                      <table class="table " >
+                        <thead>
+                          <tr >
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Rol</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr  >
+                            <td class="col-md-3">andres</td>
+                            <td class="col-md-3">herrera</td>
+                            <td class="col-md-3">tapicero</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <i class="bi bi-clipboard2-check"></i> Materia prima asignada 
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <div>
+                      <table class="table ">
+                        <thead >
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Valor</th>
+                            <th>Unidades totales</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <td class="col-md-3">puntillas</td>
+                            <td class="col-md-3">10000</td>
+                            <td class="col-md-3">55</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
