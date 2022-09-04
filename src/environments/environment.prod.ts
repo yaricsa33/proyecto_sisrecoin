@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlBackLocal: "https://backend-sistercoin.herokuapp.com",
 };

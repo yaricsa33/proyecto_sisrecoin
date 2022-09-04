@@ -31,6 +31,9 @@ export class MateriaPrimaListarComponent implements OnInit {
   }
 
   editar(id: number) {
+    [1, 2, 3].forEach(element => {
+
+    });
     this.router.navigate(['dashboard/materiaprima/editar', id])
   }
 
