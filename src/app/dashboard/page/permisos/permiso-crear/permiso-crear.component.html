@@ -16,27 +16,25 @@
       </div>
     </div>
     <div class=" row mt-4">
-      <select class="custom-select form-control " [ngClass]="{ 'is-invalid': validaciones && url.errors }"
-        formControlName="url">
-        <option selected value="">Seleccione permiso</option>
-        <option value="mueble/crear">Crear mueble</option>
-        <option value="permiso/crear">Crear permiso</option>
-        <option value="materiaprima/crear">Crear materia prima</option>
-        <option value="rol/crear">Crear rol</option>
-        <option value="usuario/crear">Crear usuario</option>
+      <select class="custom-select form-control " [ngClass]="{ 'is-invalid': validaciones && seccion.errors }"
+        formControlName="seccion">
+        <option selected value="">Seleccione seccion</option>
+        <option value="panelUsuarios">Panel de Usuarios</option>
+        <option value="manofactura">Manofactura</option>
+        <option value="PanelVentas">Panel de ventas</option>
+        <option value="Asignaciones">Asignaciones</option>
       </select>
-      <div *ngIf="validaciones && url.errors" class="invalid-feedback">
-        <div *ngIf="url.errors.required">Campo obligatorio</div>
+      <div *ngIf="validaciones && seccion.errors" class="invalid-feedback">
+        <div *ngIf="seccion.errors.required">Campo obligatorio</div>
       </div>
-
     </div>
     <div class="row mt-4">
       <select class="custom-select form-control" [ngClass]="{ 'is-invalid': validaciones && idRol.errors }"
         formControlName="idRol">
         <option value="" selected>Seleccione rol</option>
-        <option value=" 1">Administrador</option>
-        <option value="2">Secretaria</option>
-        <option value="3">Otro</option>
+        <option *ngFor="let rol of roles" [value]="rol.idRol">
+          {{ rol.nombre }}
+        </option>
       </select>
       <div *ngIf="validaciones && idRol.errors" class="invalid-feedback">
         <div *ngIf="idRol.errors.required">Campo obligatorio</div>

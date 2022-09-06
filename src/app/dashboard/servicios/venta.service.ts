@@ -3,17 +3,22 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VentaService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getVenta() {
     return this.http.get(`${environment.urlBackLocal}/venta`);
   }
   getVentaMueble() {
     return this.http.get(`${environment.urlBackLocal}/venta/mueblesVentas`);
+  }
+
+  getMueblesAsignadosVenta(id: number) {
+    return this.http.get(
+      `${environment.urlBackLocal}/venta/mueblesAsignadosVenta/${id}`
+    );
   }
 
   getVentaPorId(id: number) {
@@ -25,7 +30,10 @@ export class VentaService {
   }
 
   postInsertarVentaListados(ventaListado: any) {
-    return this.http.post(`${environment.urlBackLocal}/venta/listados`, ventaListado);
+    return this.http.post(
+      `${environment.urlBackLocal}/venta/listados`,
+      ventaListado
+    );
   }
 
   putActualizarVenta(venta: any) {

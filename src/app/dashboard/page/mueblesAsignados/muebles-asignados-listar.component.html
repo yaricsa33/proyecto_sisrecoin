@@ -6,34 +6,29 @@
         <tr>
           <th class="col-md-1">Id</th>
           <th class="col-md-2">Mueble</th>
-          <th class="col-md-2">Tipo  </th>
           <th class="col-md-3">Fecha de entrega</th>
           <th class="col-md-2">Finalizado</th>
           <th class="col-md-2">Detalle</th>
         </tr>
       </thead>
       <tbody>
-        <tr  *ngFor="let muebles of mueble">
-          <td class="col-md-1">{{muebles.idMueble}}</td>
-          <td class="col-md-2">{{muebles.nombre}}</td>
-          <td class="col-md-2">{{muebles.tipo}}</td>
-          <td class="col-md-2">{{muebles.fechaEstimadaEntrega}}</td>
+        <tr  *ngFor="let muebleA of muebleAsignados">
+          <td class="col-md-1">{{muebleA.idMueble}}</td>
+          <td class="col-md-2">{{muebleA.nombre}}</td>
+          <td class="col-md-2">{{muebleA.fechaEstimadaEntrega | date:'dd-MM-yyyy'}}</td>
           <td class="col-md-2">
             <div class="form-check modal-checkbox">
-              <input type="checkbox" class="form-check-input">
+              <input type="checkbox" class="form-check-input" [checked]="muebleA.finalizado == 1" disabled>
             </div>
           </td>
           <td class="col-md-2">
             <div class="center col-md-3" >
-              <i class="bi bi-eye-fill" data-bs-toggle="modal" data-bs-target="#detallesMuebles"></i>
+              <i class="bi bi-eye-fill" data-bs-toggle="modal" data-bs-target="#detallesMuebles" (click)="cargarMueble(muebleA)"></i>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
-    <div class="text-center">
-        <button type="button" class="btn btn-secondary btn-lg mt-5">Guardar cambios </button>
-    </div>
   </div>
 </div>
 
@@ -45,8 +40,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header estiloModal">
-
-        <h5 class="modal-title" id="detallesModalLabel">Detalle del pedido  <i class="bi bi-cart-check"></i></h5>
+<h5 class="modal-title" id="detallesModalLabel">Detalle del pedido  <i class="bi bi-cart-check"></i></h5>
       </div>
       <div class="modal-body">
         <div class="container">
@@ -54,34 +48,29 @@
           <div class="col-md-4">
           </div>
           <div class="row g-2">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-floating">
-                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="" value="Andres herrera">
+                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="" value="{{mueble.nombreCliente}}">
                 <label for="floatingInputGrid">Nombre cliente</label>
               </div>
             </div>
-            <div class="col-md-4">
+          
+            <div class="col-md-6">
               <div class="form-floating">
-                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="" value="sala">
-                <label for="floatingInputGrid">Tipo</label>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-floating">
-                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="" value="oslo">
-                <label for="floatingInputGrid">Nombre mueble</label>
+                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="" value="{{mueble.nombre}}">
+                <label for="floatingInputGrid">Nombre </label>
               </div>
             </div>
 
             <div class="col-md-6" >
               <div class="form-floating">
-                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="Descripcion" value="la sala debe llevar">
+                <input type="text" disabled class="form-control" id="floatingInputGrid" placeholder="Descripcion" value="{{mueble.descripcion}}">
                 <label for="floatingInputGrid">Descripcion</label>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-floating">
-                <input type="date" disabled class="form-control" id="floatingInputGrid" placeholder="" value="30-10-11">
+                <input type="date" disabled class="form-control" id="floatingInputGrid" placeholder=""value="{{mueble.fechaEstimadaEntrega | date:'dd-MM-yyyy'}}">
                 <label for="floatingInputGrid">Fecha de entrega</label>
               </div>
             </div>
@@ -104,10 +93,10 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr  >
-                            <td class="col-md-3">andres</td>
-                            <td class="col-md-3">herrera</td>
-                            <td class="col-md-3">tapicero</td>
+                          <tr *ngFor="let usuario of usuarios" >
+                            <td class="col-md-3">{{usuario.nombres}}</td>
+                            <td class="col-md-3">{{usuario.apellidos}}</td>
+                            <td class="col-md-3">{{usuario.nombreRol}}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -133,10 +122,10 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr >
-                            <td class="col-md-3">puntillas</td>
-                            <td class="col-md-3">10000</td>
-                            <td class="col-md-3">55</td>
+                          <tr *ngFor="let materia of materiasPrimas"  >
+                            <td class="col-md-3">{{materia.nombre}}</td>
+                            <td class="col-md-3">{{materia.valor}}</td>
+                            <td class="col-md-3">{{materia.unidades}}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -149,6 +138,7 @@
         </div>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" *ngIf="mueble.finalizado == 0" (click)="finalizarMuebleAsignado()">Finalizar</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>

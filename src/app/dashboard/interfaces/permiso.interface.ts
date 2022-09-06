@@ -3,5 +3,6 @@ export interface IPermiso {
   nombre: string;
   descripcion: string;
   url: string;
-  idRol: number
+  idRol: number;
+  seccion: string;
 }

@@ -3,21 +3,24 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PermisoService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getPermiso() {
     return this.http.get(`${environment.urlBackLocal}/permiso`);
   }
 
-
   getPermisoPorId(id: number) {
     return this.http.get(`${environment.urlBackLocal}/permiso/${id}`);
   }
 
+  getPermisoPorIdRol(idRol: number) {
+    return this.http.get(
+      `${environment.urlBackLocal}/permiso/permisoPorIdRol/${idRol}`
+    );
+  }
 
   postInsertarPermiso(permiso: any) {
     return this.http.post(`${environment.urlBackLocal}/permiso`, permiso);

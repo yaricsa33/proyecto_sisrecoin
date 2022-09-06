@@ -8,7 +8,7 @@
       <input class="form-control" type="text" placeholder="Nombre del cliente" formControlName="nombreCliente">
     </div>
     <div class="row mt-3">
-      <div class=" col-md-12 mt-3 div-icon-agregar">
+      <div class=" col-md-12 mt-3 div-icon-agregar" *ngIf="!id">
         <i class="bi bi-plus-circle icon-agregar" data-bs-toggle="modal" data-bs-target="#muebleModal"></i>
       </div>
       <table class="table ">
@@ -39,7 +39,8 @@
       </div>
     </div>
     <div class=" text-center mt-5">
-      <button type="button" class="btn btn-secondary btn-lg mt-4" (click)="guardar()">Crear venta</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="!id" (click)="guardar()">Crear venta</button>
+      <button type="button" class="btn btn-secondary btn-lg mt-4" *ngIf="id" (click)="editar()">Editar venta</button>
     </div>
   </form>
 </div>

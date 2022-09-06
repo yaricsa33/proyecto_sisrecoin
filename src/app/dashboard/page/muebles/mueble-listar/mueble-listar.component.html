@@ -3,18 +3,13 @@
   <div class="col-md-8">
     <div class="row">
       <div class="col-md-5">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"><i class="bi bi-search  "></i></span>
-          <input type="text" class="form-control" placeholder="Buscar..." aria-label="Username"
-            aria-describedby="basic-addon1">
-        </div>
       </div>
       <div class="col-md-7 div-icon-agregar">
         <a [routerLink]="'../crear'"><i class="bi bi-plus-circle icon-agregar"></i></a>
       </div>
     </div>
 
-    <table class="table">
+    <table  datatable class="table"  [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
       <thead>
         <tr>
           <th class="col-md-1">Id</th>
@@ -41,7 +36,7 @@
           <td class="col-md-2">
             <div class="row">
               <i class="bi bi-pencil col-md-3 icon-editar" (click)="editar(muebles.idMueble)"></i>
-              <i class="bi bi-trash col-md-3 icon-delete" (click)="eliminar(muebles.idMueble)"></i>
+              <i class="bi bi-trash col-md-3 icon-delete" *ngIf="muebles.estado != 3" (click)="eliminar(muebles.idMueble)"></i>
             </div>
         </tr>
       </tbody>

@@ -3,27 +3,35 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class MuebleService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBuscarMueble() {
-    return this.http.get(`${environment.urlBackLocal}/mueble`)
+    return this.http.get(`${environment.urlBackLocal}/mueble`);
   }
 
   getMuebleporId(id: number) {
-    return this.http.get(`${environment.urlBackLocal}/mueble/${id}`)
+    return this.http.get(`${environment.urlBackLocal}/mueble/${id}`);
   }
 
   getUsuariosAsignadosMueble(id: number) {
-    return this.http.get(`${environment.urlBackLocal}/mueble/usuariosAsigandosMueble/${id}`)
+    return this.http.get(
+      `${environment.urlBackLocal}/mueble/usuariosAsigandosMueble/${id}`
+    );
   }
 
   getMateriaPrimaAsignadosMueble(id: number) {
-    return this.http.get(`${environment.urlBackLocal}/mueble/materiasPrimasAsigandosMueble/${id}`)
+    return this.http.get(
+      `${environment.urlBackLocal}/mueble/materiasPrimasAsigandosMueble/${id}`
+    );
+  }
+
+  getMueblesAsignadosUsuarioPorId(id: number) {
+    return this.http.get(
+      `${environment.urlBackLocal}/mueble/mueblesAsignadosTrabajador/${id}`
+    );
   }
 
   postInsertarMueble(mueble: any) {
@@ -31,7 +39,10 @@ export class MuebleService {
   }
 
   postInsertarMuebleListados(muebleListado: any) {
-    return this.http.post(`${environment.urlBackLocal}/mueble/listados`, muebleListado);
+    return this.http.post(
+      `${environment.urlBackLocal}/mueble/listados`,
+      muebleListado
+    );
   }
 
   putActualizarMueble(mueble: any) {
@@ -40,5 +51,22 @@ export class MuebleService {
 
   deleteActualizarMueble(id: number) {
     return this.http.delete(`${environment.urlBackLocal}/mueble/${id}`);
+  }
+
+  getUsuariosAsigandosMueble(idUsuario: number) {
+    return this.http.get(
+      `${environment.urlBackLocal}/mueble/mueblesAsignadosTrabajador/${idUsuario}`
+    );
+  }
+
+  putFinalizarMueble(idUsuario: number, idMueble: number) {
+    let info = {
+      idUsuario,
+      idMueble,
+    };
+    return this.http.put(
+      `${environment.urlBackLocal}/mueble/finalizarMueble`,
+      info
+    );
   }
 }

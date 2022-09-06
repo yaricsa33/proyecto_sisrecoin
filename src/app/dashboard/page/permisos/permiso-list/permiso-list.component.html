@@ -3,25 +3,19 @@
   <div class="col-md-8">
     <div class="row">
       <div class="col-md-5">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"><i class="bi bi-search  "></i></span>
-          <input type="text" class="form-control" placeholder="Buscar..." aria-label="Username"
-            aria-describedby="basic-addon1">
-        </div>
+       
       </div>
       <div class="col-md-7 div-icon-agregar">
         <a [routerLink]="'../crear'"><i class="bi bi-plus-circle icon-agregar"></i></a>
       </div>
     </div>
-
-    <table class="table">
+    <table datatable class="table"  [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
       <thead>
         <tr>
           <th>Id</th>
           <th>Nombre</th>
-          <th>Descripcion</th>
-          <th>Url</th>
-          <th>Id rol</th>
+          <th>Sección</th>
+          <th>rol</th>
           <th>Opciones</th>
         </tr>
       </thead>
@@ -29,9 +23,8 @@
         <tr *ngFor="let permi of permiso">
           <td class="col-md-2">{{ permi.idPermiso}}</td>
           <td class="col-md-2">{{ permi.nombre}}</td>
-          <td class="col-md-2">{{ permi.descripcion}}</td>
-          <td class="col-md-2">{{ permi.url}}</td>
-          <td class="col-md-2">{{ permi.idRol}}</td>
+          <td class="col-md-2">{{ permi.seccion}}</td>
+          <td class="col-md-2">{{ permi.nombreRol}}</td>
           <td class="col-md-2">
             <div class="row ">
               <i class="bi bi-pencil col-md-3 icon-editar" (click)="editar(permi.idPermiso)"></i>

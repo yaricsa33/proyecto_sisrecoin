@@ -5,19 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompartidosModule } from '../compartidos/compartidos.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   //TODOS LOS COMPONENTES
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   //TODAS LAS LIBRERIAS
   imports: [
     BrowserModule,
     AppRoutingModule,
     CompartidosModule,
-    BrowserAnimationsModule
+    DataTablesModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

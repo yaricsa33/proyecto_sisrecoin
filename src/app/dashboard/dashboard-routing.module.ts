@@ -13,82 +13,103 @@ import { UsuarioCrearComponent } from './page/usuarios/usuario-crear/usuario-cre
 import { UsuarioListComponent } from './page/usuarios/usuario-list/usuario-list.component';
 import { VentasCrearComponent } from './page/ventas/ventas-crear/ventas-crear.component';
 import { VentasListarComponent } from './page/ventas/ventas-listar/ventas-listar.component';
-import { MueblesAsignadosListarComponent } from './page/mueblesAsignados/muebles-asignados-listar/muebles-asignados-listar.component';
 import { InicioComponent } from './page/inicio/inicio.component';
+import { MueblesAsignadosListarComponent } from './page/mueblesAsignados/muebles-asignados-listar.component';
 const routes: Routes = [
   {
-    path: '', component: HomeComponent,
+    path: '',
+    component: HomeComponent,
     children: [
       {
-        path: ' ', component: UsuarioCrearComponent
+        path: ' ',
+        component: UsuarioCrearComponent,
       },
       {
-        path: 'usuario/listar', component: UsuarioListComponent
+        path: 'usuario/listar',
+        component: UsuarioListComponent,
       },
       {
-        path: 'usuario/crear', component: UsuarioCrearComponent
+        path: 'usuario/crear',
+        component: UsuarioCrearComponent,
       },
       {
-        path: 'usuario/editar/:id', component: UsuarioCrearComponent
+        path: 'usuario/editar/:id',
+        component: UsuarioCrearComponent,
       },
       {
-        path: 'rol/crear', component: RolCrearComponent
+        path: 'rol/crear',
+        component: RolCrearComponent,
       },
       {
-        path: 'rol/editar/:id', component: RolCrearComponent
-
+        path: 'rol/editar/:id',
+        component: RolCrearComponent,
       },
       {
-        path: 'permiso/editar/:id', component: PermisoCrearComponent
+        path: 'permiso/editar/:id',
+        component: PermisoCrearComponent,
       },
       {
-        path: 'materiaprima/listar', component: MateriaPrimaListarComponent
+        path: 'materiaprima/listar',
+        component: MateriaPrimaListarComponent,
       },
       {
-        path: 'materiaprima/crear', component: MateriaPrimaCrearComponent
+        path: 'materiaprima/crear',
+        component: MateriaPrimaCrearComponent,
       },
       {
-        path: 'materiaprima/editar/:id', component: MateriaPrimaCrearComponent
+        path: 'materiaprima/editar/:id',
+        component: MateriaPrimaCrearComponent,
       },
       {
-        path: 'permiso/crear', component: PermisoCrearComponent
+        path: 'permiso/crear',
+        component: PermisoCrearComponent,
       },
       {
-        path: 'rol/listar', component: RolListComponent
+        path: 'rol/listar',
+        component: RolListComponent,
       },
       {
-        path: 'mueble/listar', component: MuebleListarComponent
+        path: 'mueble/listar',
+        component: MuebleListarComponent,
       },
       {
-        path: 'mueble/crear', component: MuebleCrearComponent
+        path: 'mueble/crear',
+        component: MuebleCrearComponent,
       },
       {
-        path: 'mueble/asignados', component: MueblesAsignadosListarComponent
+        path: 'mueble/asignados',
+        component: MueblesAsignadosListarComponent,
       },
       {
-        path: 'mueble/editar/:id', component: MuebleCrearComponent
+        path: 'mueble/editar/:id',
+        component: MuebleCrearComponent,
       },
       {
-        path: 'permiso/listar', component: PermisoListComponent
+        path: 'permiso/listar',
+        component: PermisoListComponent,
       },
       {
-        path: 'venta/listar', component: VentasListarComponent
+        path: 'venta/listar',
+        component: VentasListarComponent,
       },
       {
-        path: 'venta/crear', component: VentasCrearComponent
+        path: 'venta/crear',
+        component: VentasCrearComponent,
       },
       {
-        path: 'venta/editar/:id', component: VentasCrearComponent
+        path: 'venta/editar/:id',
+        component: VentasCrearComponent,
       },
       {
-        path: 'inicio', component: InicioComponent
-      }
-    ]
-  }
+        path: 'inicio',
+        component: InicioComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}

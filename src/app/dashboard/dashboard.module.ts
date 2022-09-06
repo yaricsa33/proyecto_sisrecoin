@@ -2,9 +2,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CompartidosModule } from '../compartidos/compartidos.module';
@@ -29,9 +29,9 @@ import { AutenticacionService } from './servicios/autenticacion.service';
 import { MateriaPrimaService } from './servicios/materiaPrima.service';
 import { MuebleService } from './servicios/mueble.service';
 import { VentaService } from './servicios/venta.service';
-import { MueblesAsignadosListarComponent } from './page/mueblesAsignados/muebles-asignados-listar/muebles-asignados-listar.component';
 import { InicioComponent } from './page/inicio/inicio.component';
-
+import { MueblesAsignadosListarComponent } from './page/mueblesAsignados/muebles-asignados-listar.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { InicioComponent } from './page/inicio/inicio.component';
     MuebleCrearComponent,
     MuebleListarComponent,
     MueblesAsignadosListarComponent,
-    InicioComponent
+    InicioComponent,
   ],
   imports: [
     HttpClientModule,
@@ -60,6 +60,7 @@ import { InicioComponent } from './page/inicio/inicio.component';
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
+    DataTablesModule,
   ],
   providers: [
     UsuarioService,
@@ -70,10 +71,10 @@ import { InicioComponent } from './page/inicio/inicio.component';
     AutenticacionService,
     MateriaPrimaService,
     MuebleService,
-    VentaService
+    VentaService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class DashboardModule { }
+export class DashboardModule {}
 
-export class AppModule { }
+export class AppModule {}
