@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         if (data.error == 200) {
           sessionStorage.setItem('user', JSON.stringify(data));
           this._serviceMensajes.successMessage('Bienvenido...', data.mensaje);
-          this.router.navigate(['/dashboard/usuario/listar']);
+          this.router.navigate(['/dashboard']);
         } else {
           this._serviceMensajes.errorMessage('Error', data.mensaje, '');
         }
