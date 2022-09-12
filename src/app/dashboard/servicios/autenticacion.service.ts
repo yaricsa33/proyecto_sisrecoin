@@ -6,17 +6,13 @@ import { IAutenticacion } from '../interfaces/autenticacion.interface';
 import { IUsuario } from '../interfaces/usuario.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class AutenticacionService {
-
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   postAutenticacion(auth: IAutenticacion) {
-    return this.http.post(`${environment.urlBackLocal}/autenticacion`, auth)
-
+    return this.http.post(`${environment.urlBackLocal}/autenticacion`, auth);
   }
 
   logout() {
@@ -25,8 +21,16 @@ export class AutenticacionService {
 
   getUsuario(): IUsuario {
     let user = sessionStorage.getItem('user');
-    let { data } = JSON.parse(user)
+    let { data } = JSON.parse(user);
     return data;
   }
 
+  validarUsuario(): boolean {
+    let user = sessionStorage.getItem('user');
+    if (user) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

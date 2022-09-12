@@ -7,6 +7,8 @@ import { CompartidosModule } from '../compartidos/compartidos.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { NgChartsModule } from 'ng2-charts';
+import { AuthGuard } from './guard/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   //TODOS LOS COMPONENTES
   declarations: [AppComponent],
@@ -18,8 +20,9 @@ import { NgChartsModule } from 'ng2-charts';
     DataTablesModule,
     BrowserAnimationsModule,
     NgChartsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
