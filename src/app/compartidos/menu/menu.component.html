@@ -1,66 +1,128 @@
 <div class="logo">
-  <h2>SISRECOIN</h2>
+  <h2 style="cursor: pointer" [routerLink]="'inicio'">SISRECOIN</h2>
 </div>
 <ul class="nav flex-column menu-accordion">
   <div class="accordion" id="accordionExample">
     <div class="accordion-item" *ngIf="panelUsuario">
       <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-          aria-expanded="true" aria-controls="collapseOne">
-          Panel de  usuarios
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          Panel de usuarios
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-        data-bs-parent="#accordionExample">
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
         <div class="accordion-body">
-          <div class="cursor"><i class="bi bi-person-fill"></i><a [routerLink]="'usuario/listar'">Usuarios</a>
+          <div class="cursor">
+            <i class="bi bi-person-fill"></i
+            ><a [routerLink]="'usuario/listar'">Usuarios</a>
           </div>
-          <div> <i class="bi bi-person-workspace"></i><a [routerLink]="'rol/listar'"> Roles</a></div>
-          <div><i class="bi bi-journal-check"></i><a [routerLink]="'permiso/listar'">Permisos</a> </div>
+          <div>
+            <i class="bi bi-person-workspace"></i
+            ><a [routerLink]="'rol/listar'"> Roles</a>
+          </div>
+          <div>
+            <i class="bi bi-journal-check"></i
+            ><a [routerLink]="'permiso/listar'">Permisos</a>
+          </div>
         </div>
       </div>
     </div>
     <div class="accordion-item" *ngIf="manofactura">
       <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-          aria-expanded="true" aria-controls="collapseTwo">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="true"
+          aria-controls="collapseTwo"
+        >
           Manufactura
         </button>
       </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
-        data-bs-parent="#accordionExample">
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample"
+      >
         <div class="accordion-body">
-          <div> <i class="bi bi-tools"></i><a [routerLink]="'materiaprima/listar'">Materia prima</a> </div>
-          <div> <i class="bi bi-house-fill"></i><a [routerLink]="'mueble/listar'">Muebles</a> </div>
+          <div>
+            <i class="bi bi-tools"></i
+            ><a [routerLink]="'materiaprima/listar'">Materia prima</a>
+          </div>
+          <div>
+            <i class="bi bi-house-fill"></i
+            ><a [routerLink]="'mueble/listar'">Muebles</a>
+          </div>
         </div>
       </div>
     </div>
     <div class="accordion-item" *ngIf="panelVentas">
       <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
-          aria-expanded="true" aria-controls="collapseThree">
-          Panel  de ventas
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseThree"
+          aria-expanded="true"
+          aria-controls="collapseThree"
+        >
+          Panel de ventas
         </button>
       </h2>
-      <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
-        data-bs-parent="#accordionExample">
+      <div
+        id="collapseThree"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample"
+      >
         <div class="accordion-body">
-          <div> <i class="bi bi-credit-card-fill"></i><a [routerLink]="'venta/listar'">Ventas</a> </div>
+          <div>
+            <i class="bi bi-credit-card-fill"></i
+            ><a [routerLink]="'venta/listar'">Ventas</a>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="accordion-item" *ngIf="asignaciones">
       <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
-          aria-expanded="true" aria-controls="collapseThree">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseThree"
+          aria-expanded="true"
+          aria-controls="collapseThree"
+        >
           Asignaciones
         </button>
       </h2>
-      <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
-        data-bs-parent="#accordionExample">
+      <div
+        id="collapseThree"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample"
+      >
         <div class="accordion-body">
-          <div> <i class="bi bi-credit-card-fill"></i><a [routerLink]="'mueble/asignados'">Muebles Asignados</a> </div>
+          <div>
+            <i class="bi bi-credit-card-fill"></i
+            ><a [routerLink]="'mueble/asignados'">Muebles Asignados</a>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+</ul>

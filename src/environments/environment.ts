@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //urlBackLocal: 'http://localhost:3050',
-  urlBackLocal: 'https://backend-sistercoin.herokuapp.com',
+  urlBackLocal: 'http://localhost:3050',
+  //urlBackLocal: 'https://backend-sistercoin.herokuapp.com',
 };
 
 /*

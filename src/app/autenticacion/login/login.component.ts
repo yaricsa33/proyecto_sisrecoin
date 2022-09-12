@@ -53,8 +53,7 @@ export class LoginComponent implements OnInit {
       .subscribe((data: IResponse) => {
         if (data.error == 200) {
           sessionStorage.setItem('user', JSON.stringify(data));
-          this._serviceMensajes.successMessage('Bienvenido...', data.mensaje);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/inicio']);
         } else {
           this._serviceMensajes.errorMessage('Error', data.mensaje, '');
         }

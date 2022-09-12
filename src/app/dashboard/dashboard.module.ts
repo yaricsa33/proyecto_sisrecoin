@@ -32,6 +32,8 @@ import { VentaService } from './servicios/venta.service';
 import { InicioComponent } from './page/inicio/inicio.component';
 import { MueblesAsignadosListarComponent } from './page/mueblesAsignados/muebles-asignados-listar.component';
 import { DataTablesModule } from 'angular-datatables';
+import { NgChartsModule } from 'ng2-charts';
+import { InicioService } from './servicios/inicio.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { DataTablesModule } from 'angular-datatables';
     FormsModule,
     NgxSpinnerModule,
     DataTablesModule,
+    NgChartsModule,
   ],
   providers: [
     UsuarioService,
@@ -72,6 +75,7 @@ import { DataTablesModule } from 'angular-datatables';
     MateriaPrimaService,
     MuebleService,
     VentaService,
+    InicioService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
