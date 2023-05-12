@@ -13,7 +13,25 @@ import { IResponse } from 'src/app/dashboard/interfaces/response.interface';
   templateUrl: './materia-prima-crear.component.html',
   styleUrls: ['./materia-prima-crear.component.css']
 })
-export class MateriaPrimaCrearComponent implements OnInit {
+export class MateriaPrimaCrearComponent implements OnI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nit {
 
   nombreTitulo: string = "";
   formMateriaPrima: FormGroup = new FormGroup({});

@@ -2,14 +2,20 @@
 <div class="row mt-5 centrar-tablas">
   <div class="col-md-8">
     <div class="row">
-      <div class="col-md-5">
-      </div>
+      <div class="col-md-5"></div>
       <div class="col-md-7 div-icon-agregar">
-        <a [routerLink]="'../crear'"><i class="bi bi-plus-circle icon-agregar"></i></a>
+        <a [routerLink]="'../crear'"
+          ><i class="bi bi-plus-circle icon-agregar"></i
+        ></a>
       </div>
     </div>
 
-    <table  datatable class="table"  [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <table
+      datatable
+      class="table"
+      [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger"
+    >
       <thead>
         <tr>
           <th class="col-md-1">Id</th>
@@ -22,22 +28,38 @@
       </thead>
       <tbody>
         <tr *ngFor="let muebles of mueble">
-          <td class="col-md-1">{{muebles.idMueble}}</td>
-          <td class="col-md-2">{{muebles.nombre}}</td>
-          <td class="col-md-2">{{muebles.nombreCliente}}</td>
-          <td class="col-md-2">{{muebles.fechaEstimadaEntrega | date:'dd-MM-yyyy'}}</td>
-          <td class="col-md-2" *ngIf="muebles.estado == 1"><span class="badge rounded-pill bg-warning text-dark">En
-              Fabricación</span>
+          <td class="col-md-1">{{ muebles.idMueble }}</td>
+          <td class="col-md-2">{{ muebles.nombre }}</td>
+          <td class="col-md-2">{{ muebles.nombreCliente }}</td>
+          <td class="col-md-2">
+            {{ muebles.fechaEstimadaEntrega | date: "dd-MM-yyyy" }}
           </td>
-          <td class="col-md-2" *ngIf="muebles.estado == 2"><span
-              class="badge rounded-pill bg-success text-dark">Fabricado</span></td>
-          <td class="col-md-2" *ngIf="muebles.estado == 3"><span
-              class="badge rounded-pill bg-info text-dark">Vendido</span></td>
+          <td class="col-md-2" *ngIf="muebles.estado == 1">
+            <span class="badge rounded-pill bg-warning text-dark"
+              >En Fabricación</span
+            >
+          </td>
+          <td class="col-md-2" *ngIf="muebles.estado == 2">
+            <span class="badge rounded-pill bg-success text-dark"
+              >Fabricado</span
+            >
+          </td>
+          <td class="col-md-2" *ngIf="muebles.estado == 3">
+            <span class="badge rounded-pill bg-info text-dark">Vendido</span>
+          </td>
           <td class="col-md-2">
             <div class="row">
-              <i class="bi bi-pencil col-md-3 icon-editar" (click)="editar(muebles.idMueble)"></i>
-              <i class="bi bi-trash col-md-3 icon-delete" *ngIf="muebles.estado != 3" (click)="eliminar(muebles.idMueble)"></i>
+              <i
+                class="bi bi-pencil col-md-3 icon-editar"
+                (click)="editar(muebles.idMueble)"
+              ></i>
+              <i
+                class="bi bi-trash col-md-3 icon-delete"
+                *ngIf="muebles.estado != 3"
+                (click)="eliminar(muebles.idMueble)"
+              ></i>
             </div>
+          </td>
         </tr>
       </tbody>
     </table>
